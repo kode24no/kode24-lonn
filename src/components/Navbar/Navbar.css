@@ -1,0 +1,29 @@
+.navbar {
+  border-bottom: 1px solid hsla(200deg, 4%, 24%, 0.88);
+  padding: 20px 0px;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#top-bar-logo,
+#top-bar-logo-icon-wrapper {
+  border-radius: 100%;
+  padding: 7px;
+  background-image: linear-gradient(
+    hsl(327, 81%, 54%),
+	hsl(300, 66%, 43%) 
+  );
+  width: 40px;
+  height: 40px;
+}
+
+#top-bar-logo-icon-wrapper {
+  margin-right: 15px;
+}

@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+
+.Charts {
+  width: 100%;
+  padding: 20px;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.charts-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Charts .chart {
+  width: 48%;
+}
+
+.contribute {
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  /* background-color: #2b2b2b; */
+  width: 100%;
+  width: 45%;
+  border: 1px dashed #3b3b3b;
+}
+
+.github-link svg {
+	width: 50px;
+	height: 50px;
+}

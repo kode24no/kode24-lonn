@@ -1,0 +1,28 @@
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: hsl(210, 4%, 10%);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+#root {
+  width: 100%;
+}
+
+
+.section-title {
+  font-size: 36px;
+  color: white;
+}
