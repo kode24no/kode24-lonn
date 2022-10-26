@@ -24,9 +24,10 @@ export const PieChart: React.FC<PieChartProps> = ({ title, chart }) => {
       tooltip: {
         callbacks: {
           label: function (context) {
+            let currentValue = context.raw as number;
+
             var data = context.dataset.data,
               label = context.label,
-              currentValue = context.raw,
               total = 0;
 
             for (var i = 0; i < data.length; i++) {
