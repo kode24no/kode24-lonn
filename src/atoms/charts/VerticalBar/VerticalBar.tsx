@@ -9,9 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import {  
-  VerticalBarProps,
-} from "../../../lib/charts";
+import { VerticalBarProps } from "../../../lib/charts";
 
 ChartJS.register(
   CategoryScale,
@@ -22,10 +20,32 @@ ChartJS.register(
   Legend
 );
 
+export type Position =
+  | "top"
+  | "left"
+  | "right"
+  | "bottom"
+  | "center"
+  | "chartArea"
+  | undefined;
+
+export type VerticalBarOptions = {
+  responsive: boolean;
+  plugins: {
+    legend: {
+      position: Position;
+    };
+    title: {
+      display: boolean;
+      text: string;
+    };
+  };
+};
+
 export const VerticalBar: React.FC<VerticalBarProps> = ({ chart, title }) => {
   const { datasets, labels } = chart;
 
-  const options: any = {
+  const options: VerticalBarOptions = {
     responsive: true,
     plugins: {
       legend: {
@@ -40,7 +60,7 @@ export const VerticalBar: React.FC<VerticalBarProps> = ({ chart, title }) => {
 
   const dataSets = {
     labels,
-	// Perhaps make into utlity function
+    // Perhaps make into utlity function
     datasets: datasets.map((dataset) => ({
       data: dataset.data,
       label: dataset.label,
