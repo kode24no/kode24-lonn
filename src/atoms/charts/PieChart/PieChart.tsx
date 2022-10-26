@@ -1,6 +1,9 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+
+import type { ChartOptions } from "chart.js";
+
 import { PieChartProps } from "../../../lib/charts";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -8,7 +11,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export const PieChart: React.FC<PieChartProps> = ({ title, chart }) => {
   const { datasets, labels } = chart;
 
-  const options: any = {
+  const options: ChartOptions<"pie"> = {
     responsive: true,
     plugins: {
       legend: {
@@ -20,7 +23,7 @@ export const PieChart: React.FC<PieChartProps> = ({ title, chart }) => {
       },
       tooltip: {
         callbacks: {
-          label: function (context: any) {
+          label: function (context) {
             var data = context.dataset.data,
               label = context.label,
               currentValue = context.raw,

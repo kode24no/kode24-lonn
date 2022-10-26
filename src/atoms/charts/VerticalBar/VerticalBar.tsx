@@ -9,6 +9,9 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+
+import type { ChartOptions } from "chart.js";
+
 import { VerticalBarProps } from "../../../lib/charts";
 
 ChartJS.register(
@@ -20,32 +23,10 @@ ChartJS.register(
   Legend
 );
 
-export type Position =
-  | "top"
-  | "left"
-  | "right"
-  | "bottom"
-  | "center"
-  | "chartArea"
-  | undefined;
-
-export type VerticalBarOptions = {
-  responsive: boolean;
-  plugins: {
-    legend: {
-      position: Position;
-    };
-    title: {
-      display: boolean;
-      text: string;
-    };
-  };
-};
-
 export const VerticalBar: React.FC<VerticalBarProps> = ({ chart, title }) => {
   const { datasets, labels } = chart;
 
-  const options: VerticalBarOptions = {
+  const options: ChartOptions = {
     responsive: true,
     plugins: {
       legend: {
