@@ -26,7 +26,7 @@ ChartJS.register(
 export const VerticalBar: React.FC<VerticalBarProps> = ({ chart, title }) => {
   const { datasets, labels } = chart;
 
-  const options: ChartOptions = {
+  const options: ChartOptions<"bar"> = {
     responsive: true,
     plugins: {
       legend: {
