@@ -1,4 +1,4 @@
-import { arrange, desc, distinct, filter, groupBy, mean, summarize, tidy } from "@tidyjs/tidy";
+import { distinct, filter, groupBy, mean, summarize, tidy } from "@tidyjs/tidy";
 import { Row, Sector } from "..";
 
 export type SalaryData = Row[];
@@ -12,7 +12,7 @@ interface Dataset<T> {
   label: string;
   data: number[];
   backgroundColor?: T;
-};
+}
 
 export interface BasicChartProps {
   labels: string[];
@@ -29,19 +29,19 @@ export type VerticalBarProps = ChartProps<BasicChartProps>;
 export type PieChartProps = ChartProps<PieChart>;
 
 export const generateSalaryAgeChart = (data: SalaryData): VerticalBarProps => {
-  const ages = tidy(data, distinct(['age'])).map((row) => row.age);
+  const ages = tidy(data, distinct(["age"])).map((row) => row.age);
 
   const privateSector = tidy(
     data,
-	filter(row => row.sector === Sector.PRIVATE),
-    groupBy("age", [summarize({ total: mean("salary") })]),
-  )
-  
+    filter((row) => row.sector === Sector.PRIVATE),
+    groupBy("age", [summarize({ total: mean("salary") })])
+  );
+
   const publicSector = tidy(
     data,
-	filter(row => row.sector === Sector.PUBLIC),
-    groupBy("age", [summarize({ total: mean("salary") })]),
-  )
+    filter((row) => row.sector === Sector.PUBLIC),
+    groupBy("age", [summarize({ total: mean("salary") })])
+  );
 
   return {
     title: "Lønn etter alder og sektor",
@@ -55,28 +55,31 @@ export const generateSalaryAgeChart = (data: SalaryData): VerticalBarProps => {
         {
           label: "Offentlig sektor",
           data: publicSector.map((result) => result.total as number),
-		  backgroundColor: 'hsl(33, 100%, 50%)'
+          backgroundColor: "hsl(33, 100%, 50%)",
         },
       ],
     },
   };
 };
 
-
-export const generateMunicipalitySalaryChart = (data: SalaryData): VerticalBarProps => {
-  const municipalities = tidy(data, distinct(['municipality'])).map((row) => row.municipality);
+export const generateMunicipalitySalaryChart = (
+  data: SalaryData
+): VerticalBarProps => {
+  const municipalities = tidy(data, distinct(["municipality"])).map(
+    (row) => row.municipality
+  );
 
   const privateSector = tidy(
     data,
-	filter(row => row.sector === Sector.PRIVATE),
-    groupBy("municipality", [summarize({ total: mean("salary") })]),
-  )
-  
+    filter((row) => row.sector === Sector.PRIVATE),
+    groupBy("municipality", [summarize({ total: mean("salary") })])
+  );
+
   const publicSector = tidy(
     data,
-	filter(row => row.sector === Sector.PUBLIC),
-    groupBy("municipality", [summarize({ total: mean("salary") })]),
-  )
+    filter((row) => row.sector === Sector.PUBLIC),
+    groupBy("municipality", [summarize({ total: mean("salary") })])
+  );
 
   return {
     title: "Lønn etter fylke og sektor",
@@ -90,7 +93,7 @@ export const generateMunicipalitySalaryChart = (data: SalaryData): VerticalBarPr
         {
           label: "Offentlig sektor",
           data: publicSector.map((result) => result.total as number),
-		  backgroundColor: 'hsl(33, 100%, 50%)'
+          backgroundColor: "hsl(33, 100%, 50%)",
         },
       ],
     },

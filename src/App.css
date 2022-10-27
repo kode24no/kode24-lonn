@@ -3,7 +3,6 @@
   width: 100%;
 }
 
-
 .Charts {
   width: 100%;
   padding: 20px;
@@ -16,8 +15,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-
 
 .Charts .chart {
   width: 48%;
@@ -33,24 +30,26 @@
   border: 1px dashed #3b3b3b;
 }
 
-.github-link svg {
-	width: 50px;
-	height: 50px;
+.contribute p {
+	text-align: left;
 }
 
-@media(max-width: 720px) {
+.github-link svg {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 720px) {
   .charts-row {
-	flex-direction: column;
+    flex-direction: column;
   }
 
   .Charts .chart {
-	width: 100%;
+    width: 100%;
   }
 
   .contribute {
-	margin-top: 45px;
-	width: 100%;
+    margin-top: 45px;
+    width: 100%;
   }
 }
-
-

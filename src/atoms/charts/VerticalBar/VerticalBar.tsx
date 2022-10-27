@@ -9,11 +9,10 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import {
-  BasicChartProps,
-  ChartProps,
-  VerticalBarProps,
-} from "../../../lib/charts";
+
+import type { ChartOptions } from "chart.js";
+
+import { VerticalBarProps } from "../../../lib/charts";
 
 ChartJS.register(
   CategoryScale,
@@ -27,7 +26,7 @@ ChartJS.register(
 export const VerticalBar: React.FC<VerticalBarProps> = ({ chart, title }) => {
   const { datasets, labels } = chart;
 
-  const options: any = {
+  const options: ChartOptions<"bar"> = {
     responsive: true,
     plugins: {
       legend: {
@@ -42,7 +41,7 @@ export const VerticalBar: React.FC<VerticalBarProps> = ({ chart, title }) => {
 
   const dataSets = {
     labels,
-	// Perhaps make into utlity function
+    // Perhaps make into utlity function
     datasets: datasets.map((dataset) => ({
       data: dataset.data,
       label: dataset.label,
